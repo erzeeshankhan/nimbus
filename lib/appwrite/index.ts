@@ -1,0 +1,1 @@
+// this file contains our backend server setup and the Node appwrite sdk setup
