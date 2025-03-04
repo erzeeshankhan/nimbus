@@ -1,13 +1,27 @@
 // this file contains our backend server setup and the Node appwrite sdk setup
 
-import { Client } from "node-appwrite";
+import { Account, Client, Databases } from "node-appwrite";
 import { appwriteConfig } from "./config";
+import { cookies } from "next/headers";
 
 // Create an appwrite session client first, this will be of users to manage their data 
 export const createSessionClient = async () => {
     const client = new Client()
         .setEndpoint(appwriteConfig.endpointUrl)
         .setProject(appwriteConfig.projectId);
+
+        const session = (await cookies()).get('appwrite.session');
+
+        if(!session || !session.value) throw new Error('No session found');
+
+        return {
+            get account() {
+                return new Account(client);
+            }
+            get databases() {
+                return new Databases(client);
+            }
+        }
 
 }
 
