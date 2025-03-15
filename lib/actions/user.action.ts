@@ -4,6 +4,9 @@ import { ID, Query } from "node-appwrite";
 import { createAdminClient } from "../appwrite";
 import { appwriteConfig } from "../appwrite/config";
 import { parseStringify } from "../utils";
+import { verify } from "crypto";
+import { cookies } from "next/headers";
+import { parse } from "postcss";
 
 
 // This is a server components that contains : 
@@ -37,7 +40,7 @@ const handleError = (error: unknown, message: string) => {
     throw error;
 }
 // Helper function to send email OTP
-const sendEmailOTP = async ({ email }: { email: string }) => {
+export const sendEmailOTP = async ({ email }: { email: string }) => {
     const { account } = await createAdminClient();
 
     try {
@@ -82,4 +85,28 @@ export const createAccount = async ({ fullName, email }: { fullName: string, ema
     }
 
     return parseStringify({ accountId });
+}
+// 
+
+// Verify secret code action below
+
+export const verifySecret = async ({ accountId, password }: { accountId: string, password: string }) => {
+    
+    try {
+        const { account } = await createAdminClient();
+        const session = await account.createSession(accountId, password);
+
+        // Beloq is the code to set the session cookie, some precautions are taken to ensure the cookie is secure
+        (await cookies()).set('appwrite-session', session.secret, {
+            path: '/',
+            httpOnly: true,
+            sameSite: 'strict',
+            secure: true,
+        });
+
+        return parseStringify({sessionId: session.$id});
+    } catch (error) {
+        handleError(error, "Failed to verify OTP");
+    }
+
 }
