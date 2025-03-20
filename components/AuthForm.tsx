@@ -57,10 +57,12 @@ const AuthForm = ({ type }: { type: FormType }) => {
     setErrorMessage("");
 
     try {
-      const user = await createAccount({
+      const user = 
+      
+      type === 'sign-up' ? await createAccount({
         fullName: values.fullName || "",
         email: values.email,
-      });
+      }): await signInUser({email: values.email});
 
       setAccountId(user.accountId);
     } catch {

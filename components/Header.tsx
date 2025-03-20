@@ -2,9 +2,9 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-import { signOutUser } from "@/lib/actions/user.actions";
 import Search from "./Search";
 import FileUploader from "./FileUploader";
+import { signOutUser } from "@/lib/actions/user.action";
 
 const Header = ({
   userId,

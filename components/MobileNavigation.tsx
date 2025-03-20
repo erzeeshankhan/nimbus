@@ -15,7 +15,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import FileUploader from "@/components/FileUploader";
-import { signOutUser } from "@/lib/actions/user.actions";
+import { signOutUser } from "@/lib/actions/user.action";
 
 interface Props {
   $id: string;

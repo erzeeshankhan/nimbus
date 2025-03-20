@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getCurrentUser } from "@/lib/actions/user.actions";
+import { getCurrentUser } from "@/lib/actions/user.action";
 import { redirect } from "next/navigation";
 import { Toaster } from "@/components/ui/toaster";
 import MobileNavigation from "@/components/MobileNavigation";

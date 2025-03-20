@@ -1,12 +1,13 @@
 "use server";
 
 import { ID, Query } from "node-appwrite";
-import { createAdminClient } from "../appwrite";
+import { createAdminClient, createSessionClient } from "../appwrite";
 import { appwriteConfig } from "../appwrite/config";
 import { parseStringify } from "../utils";
 import { verify } from "crypto";
 import { cookies } from "next/headers";
 import { parse } from "postcss";
+import { redirect } from "next/navigation";
 
 
 // This is a server components that contains : 
@@ -109,4 +110,54 @@ export const verifySecret = async ({ accountId, password }: { accountId: string,
         handleError(error, "Failed to verify OTP");
     }
 
+}
+
+// Function to fetch the current user 
+export const getCurrentUser = async () =>{
+    const { databases, account } = await createSessionClient();
+
+    const result = await account.get();
+
+    const user = await databases.getDocument(
+        appwriteConfig.databaseId,
+        appwriteConfig.usersCollectionId,
+        Query.equal("accountId", result.$id),
+    );
+
+    if (user.total <= 0 ) return null;
+
+    return parseStringify(user.documents[0]);
+};
+
+// Function to sign out the user
+export const signOutUser = async () => {
+    const { account  } = await createSessionClient();
+
+    try {
+        // Delete the current session 
+        await account.deleteSession('current');
+        (await cookies()).delete('appwrite-session');
+    }catch (error) {
+        handleError(error, "Failed to sign out user");
+    }finally {
+        redirect('/sign-in');
+    }
+};
+
+// Function to sign in the user 
+export const signInUser = async ({email}: { email: string }) => {
+    try {
+        const existingUser = await getUserByEmail(email);
+
+        // if user exist we sent otp to the email
+        if (existingUser) {
+            await sendEmailOTP({ email });
+            return parseStringify({ accountId: existingUser.accountId });
+        }
+        // if user does not exist return user not found 
+        return parseStringify({ accountId: null, error: "User not found" });
+        
+    } catch (error) {
+        handleError(error, "Failed to sign in user");
+    }
 }
