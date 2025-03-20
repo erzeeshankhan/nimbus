@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { createAccount } from "@/lib/actions/user.action";
+import { createAccount, signInUser } from "@/lib/actions/user.action";
 import OTPModal from "./OTPModal";
 
 const formSchema = z.object({
