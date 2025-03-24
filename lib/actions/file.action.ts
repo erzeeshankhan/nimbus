@@ -2,6 +2,9 @@
 
 import { UploadFileProps } from "@/types";
 import { createAdminClient } from "../appwrite";
+import { InputFile } from "node-appwrite/file";
+import { appwriteConfig } from "../appwrite/config";
+import { ID } from "node-appwrite";
 
 // Handle error function
 const handleError = (error: unknown, message: string) => {
@@ -18,7 +21,11 @@ export const uploadFile = async ({
     const { storage, databases } = await createAdminClient();
 
     try {
-        const 
+        const inputFile = InputFile.fromBuffer(file, file.name);
+
+        const bucketFile = await storage.createFile(appwriteConfig.bucketId, ID.unique(), inputFile);
+
+        const fileDocument
     } catch (error) {
         handleError(error, "Failed to upload file");
     }
