@@ -25,7 +25,7 @@ export const uploadFile = async ({
 
         const bucketFile = await storage.createFile(appwriteConfig.bucketId, ID.unique(), inputFile);
 
-        const fileDocument
+        const fileDocument = awai
     } catch (error) {
         handleError(error, "Failed to upload file");
     }
