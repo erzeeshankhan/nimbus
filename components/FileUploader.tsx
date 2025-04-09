@@ -8,7 +8,7 @@ import { cn, convertFileToUrl, getFileType } from "@/lib/utils";
 import Image from "next/image";
 import { MAX_FILE_SIZE } from "@/constants";
 import { useToast } from "@/hooks/use-toast";
-import { uploadFile } from "@/lib/actions/file.actions";
+import { uploadFile } from "@/lib/actions/file.action";
 import { usePathname } from "next/navigation";
 import { Thumbnail } from "./Thumbnail";
 
