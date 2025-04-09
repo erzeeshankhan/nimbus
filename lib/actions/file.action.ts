@@ -1,6 +1,5 @@
 "use server";
 
-import { UploadFileProps } from "@/types";
 import { createAdminClient } from "../appwrite";
 import { InputFile } from "node-appwrite/file";
 import { appwriteConfig } from "../appwrite/config";

@@ -93,6 +93,8 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
           <DialogTitle className="text-center text-light-100">
             {label}
           </DialogTitle>
+
+          {/* Rename File */}
           {value === "rename" && (
             <Input
               type="text"
@@ -100,6 +102,8 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
               onChange={(e) => setName(e.target.value)}
             />
           )}
+
+          {/* Share File */}
           {value === "details" && <FileDetails file={file} />}
           {value === "share" && (
             <ShareInput
@@ -108,6 +112,8 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
               onRemove={handleRemoveUser}
             />
           )}
+
+          {/* Delete File */}
           {value === "delete" && (
             <p className="delete-confirmation">
               Are you sure you want to delete{` `}
@@ -115,6 +121,7 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
             </p>
           )}
         </DialogHeader>
+
         {["rename", "delete", "share"].includes(value) && (
           <DialogFooter className="flex flex-col gap-3 md:flex-row">
             <Button onClick={closeAllModals} className="modal-cancel-button">
@@ -163,7 +170,7 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
 
                 if (
                   ["rename", "share", "delete", "details"].includes(
-                    actionItem.value,
+                    actionItem.value
                   )
                 ) {
                   setIsModalOpen(true);
