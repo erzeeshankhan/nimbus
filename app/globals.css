@@ -36,7 +36,7 @@
     height: initial !important;
   }
   :root {
-    --background: 0 0% 100%; /* Background color */
+    --background: 0 0% 80%; /* Background color */
     --foreground: 0 0% 3.9%; /* Text color */
     --card: 0 0% 100%; 
     --card-foreground: 0 0% 3.9%;
