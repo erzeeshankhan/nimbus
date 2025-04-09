@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -40,8 +41,19 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             className="h-auto w-[200px] lg:w-[250px]"
           />
         </div>
-
         {children}
+
+        <span>
+          A Project By{" "}
+          <Link
+            href="https://zeeshankhan.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block ml-1 px-3 py-1 bg-gray text-dark hover:bg-blue rounded-lg transition-colors duration-200 shadow-sm"
+          >
+            Zeeshan Khan
+          </Link>
+        </span>
       </section>
     </div>
   );
