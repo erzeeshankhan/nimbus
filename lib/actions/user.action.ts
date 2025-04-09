@@ -87,10 +87,9 @@ export const createAccount = async ({ fullName, email }: { fullName: string, ema
 
     return parseStringify({ accountId });
 }
-// 
+
 
 // Verify secret code action below
-
 export const verifySecret = async ({ accountId, password }: { accountId: string, password: string }) => {
     
     try {

@@ -51,7 +51,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
     setErrorMessage("");
 
     try {
-      const user =
+      const response =
         type === "sign-up"
           ? await createAccount({
               fullName: values.fullName || "",
@@ -59,10 +59,12 @@ const AuthForm = ({ type }: { type: FormType }) => {
             })
           : await signInUser({ email: values.email });
 
+      const user = JSON.parse(response);
+
       if (user?.accountId) {
         setAccountId(user.accountId);
       } else {
-        setErrorMessage("Something went wrong. Please try again.");
+        setErrorMessage("User not found or failed to create account.");
       }
     } catch (err) {
       console.error(err);
