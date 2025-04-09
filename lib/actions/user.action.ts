@@ -4,9 +4,9 @@ import { ID, Query } from "node-appwrite";
 import { createAdminClient, createSessionClient } from "../appwrite";
 import { appwriteConfig } from "../appwrite/config";
 import { parseStringify } from "../utils";
-import { verify } from "crypto";
+// import { verify } from "crypto";
 import { cookies } from "next/headers";
-import { parse } from "postcss";
+// import { parse } from "postcss";
 import { redirect } from "next/navigation";
 
 
@@ -69,7 +69,7 @@ export const createAccount = async ({ fullName, email }: { fullName: string, ema
         throw new Error("Failed to send email OTP");
     };
 
-    if (existingUser) {
+    if (!existingUser) {
         const { databases } = await createAdminClient();
 
         await databases.createDocument(
@@ -98,7 +98,7 @@ export const verifySecret = async ({ accountId, password }: { accountId: string,
         const session = await account.createSession(accountId, password);
 
         // Beloq is the code to set the session cookie, some precautions are taken to ensure the cookie is secure
-        (await cookies()).set('appwrite-session', session.secret, {
+        (await cookies()).set('appwrite.session', session.secret, {
             path: '/',
             httpOnly: true,
             sameSite: 'strict',
@@ -113,21 +113,25 @@ export const verifySecret = async ({ accountId, password }: { accountId: string,
 }
 
 // Function to fetch the current user 
-export const getCurrentUser = async () =>{
-    const { databases, account } = await createSessionClient();
-
-    const result = await account.get();
-
-    const user = await databases.getDocument(
+export const getCurrentUser = async () => {
+    try {
+      const { databases, account } = await createSessionClient();
+  
+      const result = await account.get();
+  
+      const user = await databases.listDocuments(
         appwriteConfig.databaseId,
         appwriteConfig.usersCollectionId,
-        Query.equal("accountId", result.$id),
-    );
-
-    if (user.total <= 0 ) return null;
-
-    return parseStringify(user.documents[0]);
-};
+        [Query.equal("accountId", result.$id)],
+      );
+  
+      if (user.total <= 0) return null;
+  
+      return parseStringify(user.documents[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 // Function to sign out the user
 export const signOutUser = async () => {

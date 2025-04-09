@@ -14,9 +14,9 @@ export const createSessionClient = async () => {
         .setEndpoint(appwriteConfig.endpointUrl)
         .setProject(appwriteConfig.projectId);
 
-    const session = (await cookies()).get('appwrite.session');
+    const session = (await cookies()).get("appwrite-session");
 
-    if (!session || !session.value) throw new Error('No session found');
+    if (!session || !session.value) throw new Error("No session");
 
     client.setSession(session.value);
 
@@ -26,10 +26,9 @@ export const createSessionClient = async () => {
         },
         get databases() {
             return new Databases(client);
-        }
-    }
-
-}
+        },
+    };
+};
 
 // Create an appwrite admin client to manage the appwrite server( this should never be exposed to the client side/users)
 // Making seperate clients for the users and the admin will help us to manage the data and the server more efficiently and avoid any security issues for users and server 
