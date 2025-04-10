@@ -14,6 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             height={82}
             className="h-auto"
           />
+       
 
           <div className="space-y-5 text-white">
             <h1 className="h1">Manage your files the best way</h1>
@@ -33,13 +34,33 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <section className="flex flex-1 flex-col items-center bg-white p-4 py-10 lg:justify-center lg:p-10 lg:py-0">
         <div className="mb-16 lg:hidden">
-          <Image
+          {/* <Image
             src="/assets/icons/logo-full-brand.svg"
             alt="logo"
             width={224}
             height={82}
             className="h-auto w-[200px] lg:w-[250px]"
           />
+              */}
+              
+          {/* Mobile Logo */}
+          <Image
+            src="/nimbus-logo.svg"
+            alt="Nimbus Mobile Logo"
+            width={160}
+            height={60}
+            className="block lg:hidden"
+          />
+
+          {/* Desktop Logo */}
+          <Image
+            src="/nimbus-with-bg.svg"
+            alt="Nimbus Desktop Logo"
+            width={224}
+            height={82}
+            className="hidden lg:block"
+          />
+
         </div>
         {children}
 

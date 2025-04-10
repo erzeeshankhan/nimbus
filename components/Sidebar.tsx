@@ -18,8 +18,9 @@ const Sidebar = ({ fullName, avatar, email }: Props) => {
   return (
     <aside className="sidebar">
       <Link href="/">
+      {/* Mobile Logo */}
         <Image
-          src="/assets/icons/logo-full-brand.svg"
+          src="/assets/icons/nimbus-logo.svg"
           alt="logo"
           width={160}
           height={50}
