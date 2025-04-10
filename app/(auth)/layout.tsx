@@ -14,7 +14,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             height={82}
             className="h-auto"
           />
-       
 
           <div className="space-y-5 text-white">
             <h1 className="h1">Manage your files the best way</h1>
@@ -42,7 +41,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             className="h-auto w-[200px] lg:w-[250px]"
           />
               */}
-              
+
           {/* Mobile Logo */}
           <Image
             src="/nimbus-logo.svg"
@@ -60,11 +59,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             height={82}
             className="hidden lg:block"
           />
-
         </div>
         {children}
-
-        <span>
+        <span className="block mt-6 lg:mt-0 text-center">
           A Project By{" "}
           <Link
             href="https://zeeshankhan.vercel.app/"

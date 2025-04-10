@@ -38,12 +38,19 @@ const MobileNavigation = ({
   return (
     <header className="mobile-header">
       <Image
-        src="/nimbus-with-bg.svg"
+        src="/nimbus-logo.svg"
         alt="logo"
-        width={120}
-        height={52}
+        width={20}
+        height={520}
         className="h-auto"
       />
+      {/* <Image
+        src="/nimbus-only.svg"
+        alt="logo"
+        width={200}
+        height={520}
+        className="h-auto"
+      /> */}
 
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger>
