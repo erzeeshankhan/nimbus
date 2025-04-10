@@ -18,22 +18,25 @@ const Sidebar = ({ fullName, avatar, email }: Props) => {
   return (
     <aside className="sidebar">
       <Link href="/">
-      {/* Mobile Logo */}
-        <Image
-          src="/assets/icons/nimbus-logo.svg"
-          alt="logo"
-          width={160}
-          height={50}
-          className="hidden h-auto lg:block"
-        />
-
-        <Image
-          src="/assets/icons/logo-brand.svg"
-          alt="logo"
-          width={52}
-          height={52}
-          className="lg:hidden"
-        />
+           
+                 {/* Mobile Logo */}
+                 <Image
+                   src="/nimbus-logo.svg"
+                   alt="Nimbus Mobile Logo"
+                   width={160}
+                   height={60}
+                   className="block lg:hidden"
+                 />
+       
+                 {/* Desktop Logo */}
+                 <Image
+                   src="/logo-full-brand.svg"
+                   alt="Nimbus Desktop Logo"
+                   width={224}
+                   height={82}
+                   className="hidden lg:block"
+                 />
+       
       </Link>
 
       <nav className="sidebar-nav">
@@ -43,7 +46,7 @@ const Sidebar = ({ fullName, avatar, email }: Props) => {
               <li
                 className={cn(
                   "sidebar-nav-item",
-                  pathname === url && "shad-active",
+                  pathname === url && "shad-active"
                 )}
               >
                 <Image
@@ -53,7 +56,7 @@ const Sidebar = ({ fullName, avatar, email }: Props) => {
                   height={24}
                   className={cn(
                     "nav-icon",
-                    pathname === url && "nav-icon-active",
+                    pathname === url && "nav-icon-active"
                   )}
                 />
                 <p className="hidden lg:block">{name}</p>

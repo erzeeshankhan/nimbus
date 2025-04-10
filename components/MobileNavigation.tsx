@@ -38,7 +38,7 @@ const MobileNavigation = ({
   return (
     <header className="mobile-header">
       <Image
-        src="public\assets\icons\logo-full-brand.svg"
+        src="/nimbus-with-bg.svg"
         alt="logo"
         width={120}
         height={52}
