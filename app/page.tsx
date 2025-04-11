@@ -125,7 +125,7 @@ export default async function LandingPage() {
               />
             </a>
             <a
-              href="https://twitter.com/yourhandle"
+              href="https://x.com/Zeeshan__31"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-500 transition"
