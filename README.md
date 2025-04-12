@@ -12,7 +12,24 @@
     <img src="https://img.shields.io/badge/-Appwrite-black?style=for-the-badge&logoColor=white&logo=appwrite&color=FD366E" alt="appwrite" />
   </div>
 
-<h3 align="center">Storage and File Sharing Platform</h3>
+
+Visit my Socials - 
+
+<img src="public\assets\icons\linkedin.svg" alt="Linked in logo">
+<a href="https://www.linkedin.com/in/zeeshankhan31/" target="_blank">LinkedIn</a>
+
+
+<img src="public\assets\icons\x.svg" alt="Linked in logo">
+<a href="https://x.com/Zeeshan__31" target="_blank">X</a>
+
+🤖
+<a href="https://zeeshankhan.vercel.app/" target="_blank">My Portfolio</a>
+
+
+
+<img align="center" src="public\nimbus-with-bg.svg" alt="Project Banner">
+
+<h3 align="center">Nimbus - Storage and File Sharing Platform</h3>
 
    <div align="center">
   Asimple file sharing platform built with Next.js, TypeScript, Tailwind CSS, and Appwrite.
@@ -25,8 +42,6 @@
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
-
-
 
 ## <a name="introduction">🤖 Introduction</a>
 
@@ -73,7 +88,6 @@ Make sure you have the following installed on your machine:
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en)
 - [npm](https://www.npmjs.com/) (Node Package Manager)
-
 
 **Set Up Environment Variables**
 
