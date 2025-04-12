@@ -14,8 +14,7 @@
 
 
 Visit my Socials - 
-
-<a href="https://www.linkedin.com/in/zeeshankhan31/" target="_blank">LinkedIn</a><a href="https://x.com/Zeeshan__31" target="_blank">X</a><a href="https://zeeshankhan.vercel.app/" target="_blank">My Portfolio</a>
+<a href="https://www.linkedin.com/in/zeeshankhan31/" target="_blank">LinkedIn</a>    <a href="https://x.com/Zeeshan__31" target="_blank">X</a>    <a href="https://zeeshankhan.vercel.app/" target="_blank">My Portfolio</a>
 
 
 
