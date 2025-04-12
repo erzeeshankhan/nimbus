@@ -61,6 +61,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           />
         </div>
         {children}
+
         <span className="block mt-6 lg:mt-0 text-center">
           A Project By{" "}
           <Link
@@ -72,6 +73,47 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             Zeeshan Khan
           </Link>
         </span>
+        <div className="flex justify-center m-3 gap-4">
+          <a
+            href="https://github.com/erzeeshankhan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-black transition"
+          >
+            <img
+              src="/assets/icons/github.svg"
+              alt="GitHub"
+              width={24}
+              height={24}
+            />
+          </a>
+          <a
+            href="https://x.com/Zeeshan__31"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-blue-500 transition"
+          >
+            <img
+              src="/assets/icons/x.svg"
+              alt="Twitter"
+              width={24}
+              height={24}
+            />
+          </a>
+          <a
+            href="https://linkedin.com/in/zeeshankhan31/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-blue-700 transition"
+          >
+            <img
+              src="/assets/icons/linkedin.svg"
+              alt="LinkedIn"
+              width={24}
+              height={24}
+            />
+          </a>
+        </div>
       </section>
     </div>
   );
