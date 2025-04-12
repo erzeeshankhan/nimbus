@@ -9,7 +9,7 @@ export default async function LandingPage() {
   const session = cookieStore.get("appwrite-session");
 
   if (session?.value) {
-    redirect("/root");
+    redirect("/app");
   }
 
   return (
@@ -18,7 +18,7 @@ export default async function LandingPage() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Image
-            src="/nimbus-with-bg.svg" // your logo path
+            src="/nimbus-with-bg.svg"
             alt="Nimbus Logo"
             width={150}
             height={50}
@@ -26,14 +26,23 @@ export default async function LandingPage() {
           />
         </div>
 
-        {/* Sign Up Button */}
-        <Link
-          href="/page"
-          className="bg-blue text-white px-6 py-2 rounded-full text-sm sm:text-base font-medium hover:bg-brand-100 transition"
-        >
-          Sign Up
-        </Link>
+        {/* Auth Buttons */}
+        <div className="flex items-center gap-4">
+          <Link
+            href="/sign-in"
+            className="bg-blue text-white px-6 py-2 rounded-full text-sm sm:text-base font-medium hover:bg-brand-100 transition"
+          >
+            Sign In
+          </Link>
+          <Link
+            href="/sign-up"
+            className="bg-blue text-white px-6 py-2 rounded-full text-sm sm:text-base font-medium hover:bg-brand-100 transition"
+          >
+            Sign Up
+          </Link>
+        </div>
       </header>
+
       <div className="min-h-screen min-w-screen  flex flex-col items-center justify-center text-center">
         <section
           className="max-w-screen hero flex flex-col-reverse lg:flex-row items-center justify-between  px-4 py-16 bg-cover bg-center bg-no-repeat"
@@ -49,7 +58,7 @@ export default async function LandingPage() {
               files from anywhere. Fast, secure, and beautifully simple.
             </p>
             <Link
-              href="/page"
+              href="/sign-up"
               className="inline-block bg-blue text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-brand-100 transition"
             >
               Get Started
@@ -72,7 +81,7 @@ export default async function LandingPage() {
         <LandingFeatures />
 
         {/* Testimonials Section */}
-        <section className="mt-32 w-full bg-blue py-20 px-6 text-center">
+        <section className="mt-32 w-full bg-gradient-to-r from-[#00ADB5] to-[#8ee4ef] py-20 px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-12">
             What Our Users Say
           </h2>
@@ -100,17 +109,20 @@ export default async function LandingPage() {
             Sign up and get started in less than 30 seconds.
           </p>
           <Link
-            href="/page"
+            href="/sign-up"
             className="inline-block bg-blue text-white px-10 py-4 rounded-full text-lg font-semibold hover:bg-brand-100 transition"
           >
             Start Now
           </Link>
         </section>
         <footer className="w-full py-5 px-6 bg-gray-100 text-center">
-          <p className="text-sm text-gray-500 mb-1">
+          <p className="text-sm text-gray-500 ">
             © {new Date().getFullYear()} Nimbus. All rights reserved.
           </p>
-          <div className="flex justify-center gap-4">
+        </footer>
+        {/* Footer */}
+        <footer className="mt-4 text-sm mb-5 text-slate-800">
+          <div className="flex justify-center mb-3 gap-4">
             <a
               href="https://github.com/erzeeshankhan"
               target="_blank"
@@ -151,9 +163,6 @@ export default async function LandingPage() {
               />
             </a>
           </div>
-        </footer>
-        {/* Footer */}
-        <footer className="mt-4 text-sm mb-5 text-slate-500">
           A Project by{" "}
           <Link
             href="https://zeeshankhan.vercel.app/"
